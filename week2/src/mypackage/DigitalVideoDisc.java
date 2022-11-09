@@ -1,5 +1,11 @@
+package mypackage;
+
 public class DigitalVideoDisc {
     private String title;
+    private String category;
+    private String director;
+    private int length;
+    private float cost;
 
     public DigitalVideoDisc(String title, String category, String director, float cost) {
         this.title = title;
@@ -12,14 +18,6 @@ public class DigitalVideoDisc {
         this.title = title;
     }
 
-    private String category;
-    private String director;
-    private int length;
-
-    public int getLength() {
-        return length;
-    }
-
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
         this.title = title;
         this.category = category;
@@ -28,7 +26,9 @@ public class DigitalVideoDisc {
         this.cost = cost;
     }
 
-    private float cost;
+    public int getLength() {
+        return length;
+    }
 
     public String getTitle() {
         return title;
