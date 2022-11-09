@@ -10,9 +10,9 @@ public class Aims {
         anOrder.addDigitalVideoDisc(dvd2);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", "Roger Aller", 18.99f);
         anOrder.addDigitalVideoDisc(dvd3);
+        System.out.println("Total cost is: " + anOrder.totalCost());
 
         anOrder.removeDigitalVideoDisc(dvd1);
-        System.out.println("Total cost is:");
-        System.out.println(anOrder.totalCost());
+        System.out.println("Total cost is: " + anOrder.totalCost());
     }
 }

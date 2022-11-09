@@ -31,8 +31,9 @@ public class Cart {
                     itemsOrdered[j] = itemsOrdered[j + 1];
                 }
             }
-            itemsOrdered[qtyOrdered] = null;
-            qtyOrdered--;
         }
+        System.out.println("Remove the : " + disc.getTitle());
+        itemsOrdered[qtyOrdered] = null;
+        qtyOrdered--;
     }
 }
