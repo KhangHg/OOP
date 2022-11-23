@@ -51,6 +51,6 @@ public class DigitalVideoDisc {
         return cost;
     }
 
-    private static int nbDigitalVideoDiscs = 0;
+    // private static int nbDigitalVideoDiscs = 0;
 
 }
