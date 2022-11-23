@@ -2,6 +2,7 @@ package mypackage;
 
 public class DigitalVideoDisc {
     private String title;
+
     private String category;
     private String director;
     private int length;
@@ -26,6 +27,10 @@ public class DigitalVideoDisc {
         this.cost = cost;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public int getLength() {
         return length;
     }
@@ -45,4 +50,7 @@ public class DigitalVideoDisc {
     public float getCost() {
         return cost;
     }
+
+    // private static int nbDigitalVideoDiscs = 0;
+
 }
