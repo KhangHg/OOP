@@ -80,15 +80,31 @@ public class Cart {
         System.out.println("*******************CART****************");
         System.out.println("Ordered Items:");
         for (int i = 0; i < qtyOrdered; i++) {
-            System.out.println(i + 1 + ".DVD -" + "[" + itemsOrdered[i].getTitle() + "] - " + "["
-                    + itemsOrdered[i].getCategory() + "] - " + "[" + itemsOrdered[i].getDirector() + "] - " + "["
-                    + itemsOrdered[i].getLength() + "]: " + "[" + itemsOrdered[i].getCost() + "] $ ");
+            System.out.println(itemsOrdered[i].toString());
         }
         System.out.println("Total cost: [" + totalCost() + "]");
         System.out.println("***************************************");
     }
 
-    public void searchByID(int id) {
+    public DigitalVideoDisc searchByID(int id) {
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (itemsOrdered[i].getId() == id) {
+                System.out.println("Found: " + itemsOrdered[i].toString());
+                return itemsOrdered[i];
+            }
+        }
+        System.out.println("Item not found.");
+        return null;
+    }
 
+    public DigitalVideoDisc searchByTitle(String keyword) {
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (itemsOrdered[i].isMatch(keyword)) {
+                System.out.println("Found: " + itemsOrdered[i].toString());
+                return itemsOrdered[i];
+            }
+        }
+        System.out.println("Item not found.");
+        return null;
     }
 }
