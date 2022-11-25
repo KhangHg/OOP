@@ -48,4 +48,8 @@ public class Cart {
         System.out.println("Total cost: [" + totalCost() + "]");
         System.out.println("***************************************");
     }
+
+    public void searchByID(int id) {
+
+    }
 }
