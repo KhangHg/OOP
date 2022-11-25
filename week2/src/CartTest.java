@@ -12,5 +12,9 @@ public class CartTest {
         cart.addDigitalVideoDisc(dvd3);
 
         cart.print();
+        cart.searchByID(1);
+        cart.searchByID(5);
+        cart.searchByTitle("Aladin");
+        cart.searchByTitle("test");
     }
 }
