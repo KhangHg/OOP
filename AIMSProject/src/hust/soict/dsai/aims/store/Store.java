@@ -1,38 +1,34 @@
 package hust.soict.dsai.aims.store;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Media;
 
 public class Store {
     public static final int MAX_NUMBERS_STORED = 20;
-    DigitalVideoDisc itemsInStore[] = new DigitalVideoDisc[MAX_NUMBERS_STORED];
+    private List<Media> itemslnStore = new ArrayList<>();
     public int qtyStored = 0;
 
-    public void addDVD(DigitalVideoDisc... dvdList) {
-        for (DigitalVideoDisc dvd : dvdList) {
-            itemsInStore[qtyStored] = dvd;
+    public void addMedia(Media... m_list) {
+        for (Media m : m_list) {
+            itemslnStore.add(m);
             qtyStored++;
         }
     }
 
-    public void removeDVD(DigitalVideoDisc disc) {
-        int dvdID = 0;
-        for (int i = 0; i < qtyStored; i++) {
-            if (itemsInStore[i].equals(disc)) {
-                break;
-            }
-            dvdID++;
-        }
-        for (int i = dvdID; i < qtyStored; i++) {
-            itemsInStore[i] = itemsInStore[i + 1];
-        }
+    public void removeMedia(Media m) {
+        itemslnStore.remove(m);
         qtyStored--;
     }
 
-    public void print() {
-        System.out.println("*******************CART****************");
-        System.out.println("Ordered Items:");
-        for (int i = 0; i < qtyStored; i++) {
-            System.out.println(itemsInStore[i].toString());
-        }
-        System.out.println("***************************************");
-    }
+    // public void print() {
+    // System.out.println("*******************CART****************");
+    // System.out.println("Ordered Items:");
+    // for (int i = 0; i < qtyStored; i++) {
+    // System.out.println(itemsInStore[i].toString());
+    // }
+    // System.out.println("***************************************");
+    // }
 }
