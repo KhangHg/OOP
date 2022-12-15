@@ -1,47 +1,59 @@
 package hust.soict.dsai.aims.media;
 
 public class DigitalVideoDisc extends Disc implements Playable {
-    private static int nbDigitalVideoDiscs = 0;
-
-    public DigitalVideoDisc(String title, String category, String director, float cost) {
-        setTitle(title);
-        setCategory(category);
-        setDirector(director);
-        setCost(cost);
-        nbDigitalVideoDiscs++;
-        setId(nbDigitalVideoDiscs);
+    public DigitalVideoDisc() {
+        super();
     }
 
     public DigitalVideoDisc(String title) {
-        setTitle(title);
+        super(title);
+    }
+
+    public DigitalVideoDisc(String title, String category, float cost) {
+        super(title, category, cost);
+    }
+
+    public DigitalVideoDisc(String title, String category, String director, float cost) {
+        super(title, category, director, cost);
     }
 
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-        setTitle(title);
-        setCategory(category);
-        setDirector(director);
-        setLength(length);
-        setCost(cost);
-        nbDigitalVideoDiscs++;
-        setId(nbDigitalVideoDiscs);
+        super(title, category, director, length, cost);
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Override
     public String toString() {
-        return getId() + ". DVD - ["
-                + getTitle() + "] - ["
-                + getCategory() + "] - ["
-                + getDirector() + "] - ["
-                + getLength() + "]: ["
-                + getCost() + "] $";
+        return this.id + ". DVD - "
+                + this.title + " - "
+                + this.category + " - "
+                + this.director + " - "
+                + this.length + ": "
+                + this.cost + " $";
     }
 
     public boolean isMatch(String title) {
-        return getTitle().equals(title);
+        return this.title.equals(title);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        DigitalVideoDisc disc = (DigitalVideoDisc) obj;
+        return this.title.equals(disc.title) && this.category.equals(disc.category)
+                && this.director.equals(disc.director) && this.length == disc.length
+                && this.cost == disc.cost;
+    }
+
+    @Override
     public void play() {
         System.out.println("Playing DVD: " + this.getTitle());
         System.out.println("DVD length: " + this.getLength());
     }
-
 }

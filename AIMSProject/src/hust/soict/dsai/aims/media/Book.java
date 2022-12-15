@@ -4,28 +4,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Book extends Media {
-	
-	private List<String> authors = new ArrayList<String>();
+	private List<String> authors = new ArrayList<>();
+
 	public Book() {
-		// TODO Auto-generated constructor stub
+
 	}
-	
-	public void addAuthor(String authorName) {
-		if(authors.contains(authorName)) {
-			System.out.println("Author has been added!");
-		}else {
-			authors.add(getCategory());
-			System.out.println("Add successfully!");
-			
+
+	@Override
+	public String toString() {
+		StringBuilder author = new StringBuilder();
+		for (String a : authors) {
+			author.append(a).append(" ");
 		}
+		return this.id + ". DVD - "
+				+ this.title + " - "
+				+ author + " - "
+				+ this.category + " - "
+				+ this.cost + " $";
 	}
-	public void removeAuthor(String authorName) {
-		if(authors.contains(authorName)) {
-			authors.remove(authorName);
-			System.out.println("Author has been removed!");
-		}else {
-			System.out.println("Can't remove author not exist!");
+
+	public List<String> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(List<String> authors) {
+		this.authors = authors;
+	}
+
+	public void addAuthor(String authorName) {
+		if (!authors.contains(authorName)) {
+			authors.add(authorName);
 		}
 	}
 
+	public void removeAuthor(String authorName) {
+		authors.remove(authorName);
+	}
 }

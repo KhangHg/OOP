@@ -4,50 +4,76 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompactDisc extends Disc implements Playable {
-
 	private String artist;
+	private ArrayList<Track> tracks = new ArrayList<>();
 
-	private List<Track> tracks = new ArrayList<Track>();
+	public CompactDisc() {
+		super();
+	}
 
-	public CompactDisc(String director, int length, String artist, List<Track> tracks) {
-		super(director, length);
+	public CompactDisc(String artist, ArrayList<Track> tracks) {
 		this.artist = artist;
 		this.tracks = tracks;
 	}
 
-	public CompactDisc() {
-		// TODO Auto-generated constructor stub
+	public CompactDisc(String title, String artist, ArrayList<Track> tracks) {
+		super(title);
+		this.artist = artist;
+		this.tracks = tracks;
 	}
 
-	// #region Method
-	public void addTrack(Track trackName) {
-		if (tracks.contains(trackName)) {
-			System.out.println("Track has been added!");
-		} else {
-			tracks.add(trackName);
-			System.out.println("Add successfully!");
+	public CompactDisc(String title, String category, float cost, String artist, ArrayList<Track> tracks) {
+		super(title, category, cost);
+		this.artist = artist;
+		this.tracks = tracks;
+	}
 
+	public CompactDisc(String title, String category, String director, float cost, String artist,
+			ArrayList<Track> tracks) {
+		super(title, category, director, cost);
+		this.artist = artist;
+		this.tracks = tracks;
+	}
+
+	public CompactDisc(String title, String category, String director, int length, float cost, String artist,
+			ArrayList<Track> tracks) {
+		super(title, category, director, length, cost);
+		this.artist = artist;
+		this.tracks = tracks;
+	}
+
+	public String getArtist() {
+		return artist;
+	}
+
+	public void addTrack(Track a) {
+		if (!tracks.contains(a)) {
+			tracks.add(a);
 		}
 	}
 
-	public void removeTrack(Track trackName) {
-		if (tracks.contains(trackName)) {
-			tracks.remove(trackName);
-			System.out.println("Track has been removed!");
-		} else {
-			System.out.println("Can't remove Track not exist!");
-		}
+	public void removeTrack(Track a) {
+		tracks.remove(a);
 	}
 
-	public int getLength(Track trackName) {
-		return trackName.getLength();
+	public int getLength() {
+		return length;
 	}
 
+	@Override
 	public void play() {
-		for (Track track : tracks) {
-			track.play();
+		System.out.println("Artist: " + this.artist);
+		System.out.println("List of track");
+		for (Track a : tracks) {
+			a.play();
 		}
 	}
-	// #endregion
 
+	public String toString() {
+		StringBuilder t = new StringBuilder();
+		for (Track track : tracks) {
+			t.append(track).append(" ");
+		}
+		return this.artist + " " + t;
+	}
 }
